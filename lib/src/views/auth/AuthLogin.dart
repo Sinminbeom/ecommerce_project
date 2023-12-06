@@ -1,5 +1,8 @@
+import 'package:ecommerce_project/src/bloc/AuthLoginBloc.dart';
+import 'package:ecommerce_project/src/bloc/AuthLoginEvent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 // import 'package:marketky/constant/app_color.dart';
@@ -170,6 +173,7 @@ class _AuthLoginState extends State<AuthLogin> {
           ElevatedButton(
             onPressed: () {
               // Navigator.of(context).push(MaterialPageRoute(builder: (context) => PageSwitcher()));
+              context.read<AuthLoginBloc>().add(AuthLoginRequested('email','password'));
             },
             child: Text(
               '로그인',

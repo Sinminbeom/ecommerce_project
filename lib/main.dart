@@ -1,6 +1,11 @@
+import 'package:ecommerce_project/src/repository/AuthRepository.dart';
+import 'package:ecommerce_project/src/util/test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:ecommerce_project/src/bloc/AuthLoginBloc.dart';
 import 'package:ecommerce_project/src/routes/LoginRoutes.dart';
 import 'package:ecommerce_project/src/theme/theme.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,15 +17,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
-      title: 'Flutter Demo',
-      // theme: MyThemeData.lightThemeData,
-      darkTheme: MyThemeData.darkThemeData,
-      themeMode: ThemeMode.light,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return BlocProvider<AuthLoginBloc>(
+      create: (context) => AuthLoginBloc(AuthRepository()),
+      child: MaterialApp.router(
+        routerConfig: router,
+        title: 'Flutter Demo',
+        darkTheme: MyThemeData.darkThemeData,
+        themeMode: ThemeMode.light,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
       ),
     );
   }
