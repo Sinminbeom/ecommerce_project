@@ -1,10 +1,9 @@
 import 'package:ecommerce_project/src/repository/AuthRepository.dart';
-import 'package:ecommerce_project/src/util/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:ecommerce_project/src/bloc/AuthLoginBloc.dart';
-import 'package:ecommerce_project/src/routes/LoginRoutes.dart';
+import 'package:ecommerce_project/src/routes/Route.dart';
 import 'package:ecommerce_project/src/theme/theme.dart';
 
 void main() {
